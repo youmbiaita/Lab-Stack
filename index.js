@@ -30,3 +30,36 @@ try {
     console.log(error)
     
 }
+
+//Part3: Deferred Execution
+
+const primeNumber = document.getElementById("primeList");
+
+function getPrimeNumber  (num) {
+    if(num <=1){
+        return false;
+    }
+    for(let i =2; i <= Math.sqrt(num); i++){
+        if(num % 2 === 0){
+            return false;
+        }
+    }
+    return true;
+}
+console.log(getPrimeNumber(5));
+
+function addPrimeNumber(n){
+    let primeList = [];
+    for(let i = 2; i <= n; i++){
+        if(getPrimeNumber(i)){
+            primeList.push(i)
+        }
+    }
+    primeNumber.textContent = primeList.join(", ");
+
+}
+
+// function of alert
+function alertToUser () {
+    alert("Prime number calculation is finished");
+}
